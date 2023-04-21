@@ -1,15 +1,10 @@
 import movies from '../mockup.json'
 import CircleProgress from '../utils/CircleProgress'
+import { orderDate } from '../utils/orderDate'
 
 const URL_IMAGE = 'https://image.tmdb.org/t/p/w500/'
 
 export default function Card() {
-  /*
-  const fecha = '2023-04-05'
-  const fecha2 = fecha.split('-')
-  const modificado = fecha2[2] + '/' + fecha2[1] + '/' + fecha2[0]
-  console.log(modificado)
-  */
   return (
     <>
       {movies.results.map((movie) => (
@@ -29,7 +24,7 @@ export default function Card() {
             <h2 className='text-2xl text-center pt-4'>{movie.title}</h2>
 
             <div className='p-2 flex justify-around'>
-              <p>{movie.release_date}</p>
+              <p>{orderDate(movie.release_date)}</p>
               <p>V.O: {movie.original_language.toUpperCase()}</p>
             </div>
           </div>
