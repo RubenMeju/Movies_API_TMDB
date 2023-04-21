@@ -11,9 +11,8 @@
   },
   "plugins": ["react"],
   "rules": {
-    // react must be in scope
-
     "react/react-in-jsx-scope": "off",
-    "space-before-function-paren": "off"
+    "space-before-function-paren": "off",
+    "camelcase": "off"
   }
 }

@@ -1,12 +1,7 @@
 import './App.css'
 import movies from './mockup.json'
+import CircleProgress from './utils/CircleProgress'
 
-import VisibilitySensor from 'react-visibility-sensor'
-
-import { CircularProgressbar } from 'react-circular-progressbar'
-import 'react-circular-progressbar/dist/styles.css'
-
-console.log('movies', JSON.stringify(movies))
 function App() {
   const URL_IMAGE = 'https://image.tmdb.org/t/p/w500/'
   return (
@@ -32,18 +27,7 @@ function App() {
                   <p>{movie.vote_average}</p>
                   <p>{movie.release_date}</p>
                   <div className='w-20 h-20'>
-                    <VisibilitySensor>
-                      {({ isVisible }) => {
-                        const percentage = isVisible ? movie.vote_average : 0
-                        return (
-                          <CircularProgressbar
-                            value={percentage}
-                            maxValue={10}
-                            text={`${percentage}%`}
-                          />
-                        )
-                      }}
-                    </VisibilitySensor>
+                    <CircleProgress value={movie.vote_average} />
                   </div>
                 </div>
               </div>
