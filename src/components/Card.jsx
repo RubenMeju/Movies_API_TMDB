@@ -17,19 +17,30 @@ export default function Card() {
         // card
         <div
           key={movie.id}
-          className=' w-4/5 m-auto mt-10 overflow-hidden rounded-md'
+          className={`w-4/5 max-w-xs h-[400px] m-auto mt-10 rounded-md border-4 relative ${
+            movie.vote_average * 10 > 70
+              ? 'border-green-600'
+              : movie.vote_average * 10 > 40
+              ? 'border-yellow-600'
+              : 'border-red-600'
+          }`}
         >
-          <div className='relative'>
-            <img src={URL_IMAGE + movie.poster_path} alt={movie.title} />
-            <div className='w-10 h-10 absolute left-3 bottom-[-1.2rem]'>
-              <CircleProgress value={movie.vote_average * 10} />
-            </div>
+          <div className='w-12 h-12 absolute top-[-20px] right-[-20px] z-50'>
+            <CircleProgress value={movie.vote_average * 10} />
           </div>
+          {/* 80% */}
+          <div className='h-4/5'>
+            <img
+              src={URL_IMAGE + movie.poster_path}
+              alt={movie.title}
+              className='object-cover w-full h-full object-top'
+            />
+          </div>
+          {/* 20% */}
+          <div className=' h-1/5 pl-2 pr-2 bg-slate-200 flex flex-col justify-around'>
+            <h2 className='text-2xl text-center leading-6'>{movie.title}</h2>
 
-          <div className=' bg-slate-200 '>
-            <h2 className='text-2xl text-center pt-4'>{movie.title}</h2>
-
-            <div className='p-2 flex justify-around'>
+            <div className='flex justify-around'>
               <p>{orderDate(movie.release_date)}</p>
               <p>V.O: {movie.original_language.toUpperCase()}</p>
             </div>
