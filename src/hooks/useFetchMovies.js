@@ -1,22 +1,20 @@
 import { useEffect, useState } from 'react'
 import { fetchMovies } from '../services/service'
 
-export const useFetchMovies = () => {
+export const useFetchMovies = (language) => {
+  console.log('useFetchMovies', language)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
   const [movies, setMovies] = useState(null)
 
-  const getMovies = async () => {
-    setError(false)
-    setLoading(true)
-    fetchMovies()
-      .then((data) => setMovies(data))
-      .catch(() => setError(true))
-    setLoading(false)
-  }
-
   useEffect(() => {
-    getMovies()
-  }, [])
+    setLoading(true)
+    fetchMovies(language)
+      .then((data) => {
+        setMovies(data)
+      })
+      .catch(() => setError(true))
+      .finally(() => setLoading(false))
+  }, [language])
   return { loading, error, movies }
 }
