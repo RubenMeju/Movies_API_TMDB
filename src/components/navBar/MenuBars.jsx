@@ -15,12 +15,14 @@ export default function MenuBars() {
         <img src={iconBars} alt='' className='w-12 h-12' />
       </button>
 
-      {isOpen ? (
-        <div className='fixed w-full h-full top-16 bg-orange-400 z-50'>
-          MenuBars
-          <NavLinks />
-        </div>
-      ) : null}
+      <div
+        className={`fixed w-full h-full top-16 transition-all duration-500 bg-orange-400 z-50 ${
+          isOpen ? 'left-0' : 'left-[-100%]'
+        } `}
+      >
+        MenuBars
+        <NavLinks />
+      </div>
     </>
   )
 }
