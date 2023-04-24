@@ -26,7 +26,7 @@ export default function Card(language) {
               : 'border-red-600'
           }`}
         >
-          <div className='w-12 h-12 absolute top-[-20px] right-[-20px] z-50'>
+          <div className='w-12 h-12 absolute top-[-20px] right-[-20px] z-10'>
             <CircleProgress value={movie.vote_average * 10} />
           </div>
           {/* 80% */}

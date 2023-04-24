@@ -1,29 +1,20 @@
-import { useState } from 'react'
+import { Routes, Route } from 'react-router-dom'
 import './App.css'
-import Card from './components/Card'
+import MoviesPage from './pages/MoviesPage'
+import TvPage from './pages/TvPage'
+import Characters from './pages/Characters'
+import Layout from './pages/Layout'
 
 function App() {
-  const [language, setLanguage] = useState('es')
   return (
-    <>
-      <div id='LAYOUT' className='container m-auto'>
-        <button
-          type='button'
-          className='bg-gray-300 h-20'
-          onClick={() => {
-            language === 'es' ? setLanguage('en') : setLanguage('es')
-          }}
-        >
-          {language === 'es' ? 'Español' : 'English'}
-        </button>
-        <h1 className='text-3xl text-center font-bold  text-white'>
-          Popular Movies!
-        </h1>
-        <div className='md: flex flex-wrap justify-between '>
-          <Card language={language} />
-        </div>
-      </div>
-    </>
+    <Routes>
+      <Route path='/' element={<Layout />}>
+        <Route path='peliculas' element={<MoviesPage />} />
+
+        <Route path='tv' element={<TvPage />} />
+        <Route path='characters' element={<Characters />} />
+      </Route>
+    </Routes>
   )
 }
 
