@@ -6,9 +6,8 @@ import Loader from './loader/Loader'
 // 'https://api.themoviedb.org/3/movie/popular?api_key=1c1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b&language=es-ES&page=1'
 const URL_IMAGE = 'https://image.tmdb.org/t/p/w500/'
 
-export default function Card(language) {
-  console.log('language card: ', language)
-  const { loading, error, movies } = useFetchMovies(language)
+export default function Card() {
+  const { loading, error, movies } = useFetchMovies()
 
   return (
     <>

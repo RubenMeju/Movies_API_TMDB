@@ -1,7 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { fetchMovies } from '../services/service'
+import { LanguageContext } from '../pages/Layout.jsx'
+export const useFetchMovies = () => {
+  const language = useContext(LanguageContext)
 
-export const useFetchMovies = (language) => {
   console.log('useFetchMovies', language)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
