@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import BtnBars from './BtnBars'
 import NavLinks from './NavLinks'
+import ChangeLanguage from './ChangeLanguage'
 
 export default function NavBar({ setLanguage }) {
   const [isOpen, setIsOpen] = useState(false)
@@ -11,10 +12,8 @@ export default function NavBar({ setLanguage }) {
 
       <BtnBars isOpen={isOpen} setIsOpen={setIsOpen} />
       <NavLinks isOpen={isOpen} />
-      <select onChange={(e) => setLanguage(e.target.value)}>
-        <option value='es'>Español</option>
-        <option value='en'>English</option>
-      </select>
+
+      <ChangeLanguage setLanguage={setLanguage} />
     </nav>
   )
 }
