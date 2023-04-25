@@ -40,7 +40,6 @@ export default function Card({ loading, error, data }) {
             </h2>
 
             <div className='flex justify-around'>
-              {console.log('data', item.release_date)}
               <p>
                 {orderDate(
                   item.release_date ? item.release_date : item.first_air_date

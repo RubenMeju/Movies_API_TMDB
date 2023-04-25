@@ -3,8 +3,6 @@ import ChangeLanguage from './ChangeLanguage'
 
 export default function NavLinks({ isOpen, setLanguage }) {
   const location = useLocation()
-  console.log('location:', location.pathname)
-  // una lista con los items 'Movies, TV, Characters' y subitems 'Popular, Top Rated, Upcoming, Now Playing'
   const links = [
     {
       name: 'Películas',
@@ -15,7 +13,7 @@ export default function NavLinks({ isOpen, setLanguage }) {
         },
         {
           name: 'En cartelera hoy',
-          path: 'movies/now-playing'
+          path: 'movies/now_playing'
         },
 
         {
@@ -24,7 +22,7 @@ export default function NavLinks({ isOpen, setLanguage }) {
         },
         {
           name: 'Mejor valoradas',
-          path: '/movies/top-rated'
+          path: '/movies/top_rated'
         }
       ]
     },
@@ -36,17 +34,16 @@ export default function NavLinks({ isOpen, setLanguage }) {
           path: '/tv'
         },
         {
-          name: 'Top Rated',
-
-          path: '/top-rated'
+          name: 'Se emite hoy',
+          path: 'tv/airing_today'
         },
         {
-          name: 'On TV',
-          path: '/on-tv'
+          name: 'En televisión',
+          path: 'tv/on_the_air'
         },
         {
-          name: 'Airing Today',
-          path: '/airing-today'
+          name: 'Mejor valoradas',
+          path: 'tv/top_rated'
         }
       ]
     }
