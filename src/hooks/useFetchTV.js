@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react'
 import { LanguageContext } from '../pages/Layout.jsx'
-import { fetchTV } from '../services/service.js'
+import { fetchTV } from '../services/tv.service.js'
 export const useFetchTV = () => {
   const language = useContext(LanguageContext)
 

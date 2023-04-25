@@ -8,7 +8,6 @@ import Layout from './pages/Layout'
 import MoviesPage from './pages/MoviesPage'
 import TvPage from './pages/TvPage'
 import ErrorPage from './pages/ErrorPage'
-import CharactersPage from './pages/CharactersPage'
 
 const router = createBrowserRouter([
   {
@@ -23,10 +22,6 @@ const router = createBrowserRouter([
       {
         path: '/tv',
         element: <TvPage />
-      },
-      {
-        path: '/personajes',
-        element: <CharactersPage />
       }
     ]
   }

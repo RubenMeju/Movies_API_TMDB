@@ -49,16 +49,6 @@ export default function NavLinks({ isOpen, setLanguage }) {
           path: '/airing-today'
         }
       ]
-    },
-    {
-      name: 'Personajes',
-      path: 'personajes',
-      categories: [
-        {
-          name: 'Popular',
-          path: '/popular'
-        }
-      ]
     }
   ]
 
