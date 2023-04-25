@@ -56,18 +56,18 @@ export default function NavLinks({ isOpen, setLanguage }) {
         isOpen ? 'left-0' : 'left-[-100%]'
       } `}
     >
-      <ul className='flex flex-col gap-2 p-4 lg:flex-row lg:gap-8 '>
+      <ul className='flex flex-col gap-2 p-4 lg:flex-row  '>
         {links.map((link) => (
           <li
             key={link.name}
-            className='group text-slate-100 text-3xl cursor-pointer p-2'
+            className='group text-slate-100 text-3xl cursor-pointer p-4'
           >
             {link.name}
-            <ul className=' hidden group-hover:block lg:absolute lg:top-16'>
+            <ul className=' hidden group-hover:block lg:absolute top-16'>
               {link.categories.map((category, index) => (
                 <li
                   key={index}
-                  className='text-xl p-2 text-gray-300 lg:bg-blue-800 hover:bg-blue-500'
+                  className='text-xl p-2 text-gray-300 lg:p-4 bg-blue-800 hover:bg-blue-500'
                 >
                   <Link
                     to={category.path}
