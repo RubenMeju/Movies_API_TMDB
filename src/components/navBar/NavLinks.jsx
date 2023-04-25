@@ -4,20 +4,58 @@ import ChangeLanguage from './ChangeLanguage'
 export default function NavLinks({ isOpen, setLanguage }) {
   const location = useLocation()
   console.log('location:', location.pathname)
+
+  // una lista con los items 'Movies, TV, Characters' y subitems 'Popular, Top Rated, Upcoming, Now Playing'
   const links = [
     {
       name: 'Películas',
-      path: '/'
+      path: '/',
+      categories: [
+        {
+          name: 'Top Rated',
+          path: '/top-rated'
+        },
+        {
+          name: 'Upcoming',
+          path: '/upcoming'
+        },
+        {
+          name: 'Now Playing',
+          path: '/now-playing'
+        }
+      ]
     },
     {
       name: 'Televisión',
-      path: 'tv'
+      path: 'tv',
+      categories: [
+        {
+          name: 'Top Rated',
+
+          path: '/top-rated'
+        },
+        {
+          name: 'On TV',
+          path: '/on-tv'
+        },
+        {
+          name: 'Airing Today',
+          path: '/airing-today'
+        }
+      ]
     },
     {
       name: 'Personajes',
-      path: 'personajes'
+      path: 'personajes',
+      categories: [
+        {
+          name: 'Popular',
+          path: '/popular'
+        }
+      ]
     }
   ]
+
   return (
     <div
       className={`fixed w-full h-full top-16 transition-all duration-500 z-50 bg-orange-500
@@ -25,10 +63,26 @@ export default function NavLinks({ isOpen, setLanguage }) {
         isOpen ? 'left-0' : 'left-[-100%]'
       } `}
     >
-      <ul className='flex flex-col gap-4 lg:flex-row lg:gap-8'>
+      <ul className='flex flex-col lg:flex-row lg:gap-8'>
         {links.map((link) => (
-          <li key={link.name} className='text-slate-100 text-2xl'>
-            <Link to={link.path}>{link.name}</Link>
+          <li key={link.name}>
+            <Link to={link.path}> {link.name} </Link>
+            <ul className='flex flex-col bg-green-500'>
+              {link.categories.map((category) => (
+                <li key={category.name}>
+                  <Link
+                    to={`${link.path}${category.path}`}
+                    className={`${
+                      location.pathname === `${link.path}${category.path}`
+                        ? 'text-green-500'
+                        : 'text-white'
+                    }`}
+                  >
+                    {category.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </li>
         ))}
       </ul>
@@ -36,39 +90,3 @@ export default function NavLinks({ isOpen, setLanguage }) {
     </div>
   )
 }
-
-/*
-export default function NavLinks() {
-  const location = useLocation()
-  console.log('location:', location.pathname)
-  return (
-    <ul className='links'>
-      <Link
-        to='/'
-        className={` links link ${
-          location.pathname === '/' ? 'itemActive' : null
-        } `}
-      >
-        Películas
-      </Link>
-      <Link
-        to='/tv'
-        className={` links link ${
-          location.pathname === '/tv' ? 'itemActive' : null
-        } `}
-      >
-        Televisión
-      </Link>
-
-      <Link
-        to='/characters'
-        className={` links link ${
-          location.pathname === '/characters' ? 'itemActive' : null
-        } `}
-      >
-        Personajes
-      </Link>
-    </ul>
-  )
-}
-*/
