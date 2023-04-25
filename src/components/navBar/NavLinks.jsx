@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom'
+import ChangeLanguage from './ChangeLanguage'
 
-export default function NavLinks({ isOpen }) {
+export default function NavLinks({ isOpen, setLanguage }) {
   const location = useLocation()
   console.log('location:', location.pathname)
   const links = [
@@ -19,7 +20,8 @@ export default function NavLinks({ isOpen }) {
   ]
   return (
     <div
-      className={`fixed w-full h-full top-16 transition-all duration-500 z-50 lg:static lg:w-auto lg:flex lg:items-center ${
+      className={`fixed w-full h-full top-16 transition-all duration-500 z-50 bg-orange-500
+      lg:static lg:w-auto lg:flex lg:items-center lg:bg-transparent ${
         isOpen ? 'left-0' : 'left-[-100%]'
       } `}
     >
@@ -30,6 +32,7 @@ export default function NavLinks({ isOpen }) {
           </li>
         ))}
       </ul>
+      <ChangeLanguage setLanguage={setLanguage} />
     </div>
   )
 }
