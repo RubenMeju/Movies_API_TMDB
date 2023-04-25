@@ -11,7 +11,7 @@ export default function Layout() {
     <>
       <LanguageContext.Provider value={language}>
         <NavBar setLanguage={setLanguage} />
-        <div className='container m-auto bg-green-400'>
+        <div className='container m-auto pt-16'>
           <Outlet />
         </div>
       </LanguageContext.Provider>

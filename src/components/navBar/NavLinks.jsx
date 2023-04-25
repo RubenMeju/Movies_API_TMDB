@@ -51,7 +51,7 @@ export default function NavLinks({ isOpen, setLanguage }) {
 
   return (
     <div
-      className={`fixed w-full h-full top-16 transition-all duration-500 z-50 bg-orange-500
+      className={`fixed w-full h-full top-16 transition-all duration-500 z-50 bg-blue-800
       lg:static lg:w-auto lg:flex lg:items-center lg:bg-transparent ${
         isOpen ? 'left-0' : 'left-[-100%]'
       } `}
@@ -60,14 +60,14 @@ export default function NavLinks({ isOpen, setLanguage }) {
         {links.map((link) => (
           <li
             key={link.name}
-            className='group text-slate-100 text-3xl cursor-pointer p-4'
+            className='group text-slate-100 text-3xl cursor-pointer p-2'
           >
             {link.name}
-            <ul className=' bg-red-400 hidden group-hover:block lg:absolute lg:top-16'>
+            <ul className=' hidden group-hover:block lg:absolute lg:top-16'>
               {link.categories.map((category, index) => (
                 <li
                   key={index}
-                  className='text-xl p-4 text-gray-300 odd:bg-violet-400 even:bg-green-700'
+                  className='text-xl p-2 text-gray-300 lg:bg-blue-800 hover:bg-blue-500'
                 >
                   <Link
                     to={category.path}
