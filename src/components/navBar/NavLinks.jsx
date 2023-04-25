@@ -4,31 +4,37 @@ import ChangeLanguage from './ChangeLanguage'
 export default function NavLinks({ isOpen, setLanguage }) {
   const location = useLocation()
   console.log('location:', location.pathname)
-
   // una lista con los items 'Movies, TV, Characters' y subitems 'Popular, Top Rated, Upcoming, Now Playing'
   const links = [
     {
       name: 'Películas',
-      path: '/',
       categories: [
         {
-          name: 'Top Rated',
-          path: '/top-rated'
+          name: 'Popular',
+          path: '/'
         },
         {
-          name: 'Upcoming',
-          path: '/upcoming'
+          name: 'En cartelera hoy',
+          path: 'movies/now-playing'
+        },
+
+        {
+          name: 'Proximanente',
+          path: 'movies/upcoming'
         },
         {
-          name: 'Now Playing',
-          path: '/now-playing'
+          name: 'Mejor valoradas',
+          path: '/movies/top-rated'
         }
       ]
     },
     {
       name: 'Televisión',
-      path: 'tv',
       categories: [
+        {
+          name: 'Popular',
+          path: '/tv'
+        },
         {
           name: 'Top Rated',
 
@@ -63,15 +69,21 @@ export default function NavLinks({ isOpen, setLanguage }) {
         isOpen ? 'left-0' : 'left-[-100%]'
       } `}
     >
-      <ul className='flex flex-col lg:flex-row lg:gap-8'>
+      <ul className='flex flex-col gap-2 p-4 lg:flex-row lg:gap-8 '>
         {links.map((link) => (
-          <li key={link.name}>
-            <Link to={link.path}> {link.name} </Link>
-            <ul className='flex flex-col bg-green-500'>
-              {link.categories.map((category) => (
-                <li key={category.name}>
+          <li
+            key={link.name}
+            className='group text-slate-100 text-3xl cursor-pointer p-4'
+          >
+            {link.name}
+            <ul className=' bg-red-400 hidden group-hover:block lg:absolute lg:top-16'>
+              {link.categories.map((category, index) => (
+                <li
+                  key={index}
+                  className='text-xl p-4 text-gray-300 odd:bg-violet-400 even:bg-green-700'
+                >
                   <Link
-                    to={`${link.path}${category.path}`}
+                    to={category.path}
                     className={`${
                       location.pathname === `${link.path}${category.path}`
                         ? 'text-green-500'
