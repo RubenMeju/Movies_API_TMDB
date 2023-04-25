@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom'
 import ChangeLanguage from './ChangeLanguage'
 
-export default function NavLinks({ isOpen, setLanguage }) {
+export default function NavLinks({ isOpen, setIsOpen, setLanguage }) {
   const location = useLocation()
   const links = [
     {
@@ -68,6 +68,9 @@ export default function NavLinks({ isOpen, setLanguage }) {
                 <li
                   key={index}
                   className='text-xl p-2 text-gray-300 lg:p-4 bg-blue-800 hover:bg-blue-500'
+                  onClick={() => {
+                    setIsOpen(false)
+                  }}
                 >
                   <Link
                     to={category.path}

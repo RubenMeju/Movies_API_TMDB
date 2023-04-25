@@ -11,7 +11,11 @@ export default function NavBar({ setLanguage }) {
         <h1 className='text-4xl text-slate-100'>Movies API</h1>
 
         <BtnBars isOpen={isOpen} setIsOpen={setIsOpen} />
-        <NavLinks isOpen={isOpen} setLanguage={setLanguage} />
+        <NavLinks
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          setLanguage={setLanguage}
+        />
       </div>
     </nav>
   )
