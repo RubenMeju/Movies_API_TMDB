@@ -10,8 +10,8 @@ export default function MoviesPage() {
 
   return (
     <>
-      <h1 className='text-3xl text-center font-bold  text-white'>
-        {pathname === '/' && 'Popular'}
+      <h1 className='pt-8 text-3xl text-center font-bold  text-white'>
+        {pathname === '/' && 'Películas populares'}
         {pathname === '/movies/now_playing' && 'En cartelera hoy'}
         {pathname === '/movies/upcoming' && 'Proximanente'}
         {pathname === '/movies/top_rated' && 'Mejor valoradas'}
