@@ -1,8 +1,12 @@
-import { API_KEY, PAGE } from '../const'
+import { API_KEY } from '../const'
 const URL_API = 'https://api.themoviedb.org/3/'
 const URL_MOVIES_POPULAR = 'movie/'
 
-export const fetchMovies = async (language = 'es', category = 'popular') => {
+export const fetchMovies = async (
+  language = 'es',
+  category = 'popular',
+  page = '1'
+) => {
   const res = await fetch(
     URL_API +
       URL_MOVIES_POPULAR +
@@ -11,7 +15,7 @@ export const fetchMovies = async (language = 'es', category = 'popular') => {
       '&language=' +
       language +
       '&page=' +
-      PAGE
+      page
   )
   const data = await res.json()
   return data

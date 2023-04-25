@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 
-export default function Paginator() {
+export default function Paginator({ currentPage }) {
   const [page, setPage] = useState(1)
   const [totalPages, setTotalPages] = useState(10)
-
+  console.log('currentPage', JSON.stringify(currentPage))
   return (
     <div aria-label='pagination'>
       <ul className='inline-flex'>
@@ -29,7 +29,7 @@ export default function Paginator() {
         </li>
         <li>
           <button className='h-10 px-5 text-indigo-600 transition-colors duration-150 bg-white border border-indigo-600 rounded-r-lg focus:shadow-outline hover:bg-indigo-100'>
-            Next
+            Next {currentPage + 1}
           </button>
         </li>
       </ul>

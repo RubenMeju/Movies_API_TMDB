@@ -1,12 +1,12 @@
-import Paginator from '../components/Paginator'
 import Card from '../components/Card'
 import { useFetchMovies } from '../hooks/useFetchMovies'
 import { useLocation } from 'react-router-dom'
 
 export default function MoviesPage() {
-  const { loading, error, movies } = useFetchMovies()
+  const { loading, error, movies, page, setPage } = useFetchMovies()
   const { pathname } = useLocation()
-  console.log('fdsfds  ', pathname)
+
+  console.log('fdsfds  ', page)
 
   return (
     <>
@@ -19,7 +19,14 @@ export default function MoviesPage() {
       <div className='md: flex flex-wrap justify-between '>
         <Card loading={loading} error={error} data={movies} />
       </div>
-      <Paginator />
+      <button
+        className='bg-green-700 text-white p-6'
+        onClick={() => {
+          setPage(page + 1)
+        }}
+      >
+        Mostras más
+      </button>
     </>
   )
 }
