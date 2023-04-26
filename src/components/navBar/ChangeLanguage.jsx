@@ -15,7 +15,7 @@ export default function ChangeLanguage({ setLanguage }) {
         />
         <select
           onChange={(e) => setLanguage(e.target.value)}
-          className='pl-0.5 bg-transparent text-slate-100 outline-none'
+          className='pl-0.5 bg-transparent text-slate-100 outline-none cursor-pointer'
         >
           <option value='es' className='bg-blue-800'>
             Español
