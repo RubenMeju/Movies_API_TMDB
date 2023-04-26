@@ -3,6 +3,7 @@ import ChangeLanguage from './ChangeLanguage'
 
 export default function NavLinks({ isOpen, setIsOpen, setLanguage }) {
   const location = useLocation()
+  console.log('my location', location.pathname)
   const links = [
     {
       name: 'Películas',
@@ -13,12 +14,12 @@ export default function NavLinks({ isOpen, setIsOpen, setLanguage }) {
         },
         {
           name: 'En cartelera hoy',
-          path: 'movies/now_playing'
+          path: '/movies/now_playing'
         },
 
         {
           name: 'Proximanente',
-          path: 'movies/upcoming'
+          path: '/movies/upcoming'
         },
         {
           name: 'Mejor valoradas',
@@ -35,15 +36,15 @@ export default function NavLinks({ isOpen, setIsOpen, setLanguage }) {
         },
         {
           name: 'Se emite hoy',
-          path: 'tv/airing_today'
+          path: '/tv/airing_today'
         },
         {
           name: 'En televisión',
-          path: 'tv/on_the_air'
+          path: '/tv/on_the_air'
         },
         {
           name: 'Mejor valoradas',
-          path: 'tv/top_rated'
+          path: '/tv/top_rated'
         }
       ]
     }
@@ -65,24 +66,24 @@ export default function NavLinks({ isOpen, setIsOpen, setLanguage }) {
             {link.name}
             <ul className=' hidden group-hover:block lg:absolute top-16'>
               {link.categories.map((category, index) => (
-                <li
+                <Link
+                  to={category.path}
                   key={index}
-                  className='text-xl p-2 text-gray-300 lg:p-4 bg-blue-800 hover:bg-blue-500'
-                  onClick={() => {
-                    setIsOpen(false)
-                  }}
+                  className={
+                    location.pathname === category.path
+                      ? 'text-green-400'
+                      : 'text-slate-100'
+                  }
                 >
-                  <Link
-                    to={category.path}
-                    className={`${
-                      location.pathname === `${link.path}${category.path}`
-                        ? 'text-green-500'
-                        : 'text-white'
-                    }`}
+                  <li
+                    className='text-xl p-2  lg:p-4 bg-blue-800 hover:bg-blue-500'
+                    onClick={() => {
+                      setIsOpen(false)
+                    }}
                   >
                     {category.name}
-                  </Link>
-                </li>
+                  </li>
+                </Link>
               ))}
             </ul>
           </li>
