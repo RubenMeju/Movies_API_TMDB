@@ -10,6 +10,7 @@ import TvPage from './pages/TvPage'
 import ErrorPage from './pages/ErrorPage'
 import DetailsByIdPage from './pages/DetailsByIdPage'
 
+import './i18n'
 const router = createBrowserRouter([
   {
     path: '/',

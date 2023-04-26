@@ -1,9 +1,12 @@
-import { useContext, useEffect, useState } from 'react'
-import { LanguageContext } from '../pages/Layout.jsx'
+import { useEffect, useState } from 'react'
 import { fetchTV } from '../services/tv.service.js'
 import { useLocation } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+
 export const useFetchTV = () => {
-  const language = useContext(LanguageContext)
+  const { i18n } = useTranslation()
+
+  const language = i18n.languages[0]
 
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)

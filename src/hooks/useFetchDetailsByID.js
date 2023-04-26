@@ -1,9 +1,8 @@
-import { useContext, useEffect, useState } from 'react'
-import { LanguageContext } from '../pages/Layout.jsx'
+import { useEffect, useState } from 'react'
 import { fetchDetailsByID } from '../services/detailsById.service.js'
 
 export const useFetchDetailsByID = (pathAction, id) => {
-  const language = useContext(LanguageContext)
+  const language = 'es-ES'
 
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)

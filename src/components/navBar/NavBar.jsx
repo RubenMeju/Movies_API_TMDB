@@ -3,7 +3,7 @@ import { useState } from 'react'
 import BtnBars from './BtnBars'
 import NavLinks from './NavLinks'
 
-export default function NavBar({ setLanguage }) {
+export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false)
   return (
     <nav className='fixed w-full h-16 bg-blue-800 z-50'>
@@ -11,11 +11,7 @@ export default function NavBar({ setLanguage }) {
         <h1 className='text-4xl text-slate-100'>Movies API</h1>
 
         <BtnBars isOpen={isOpen} setIsOpen={setIsOpen} />
-        <NavLinks
-          isOpen={isOpen}
-          setIsOpen={setIsOpen}
-          setLanguage={setLanguage}
-        />
+        <NavLinks isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
     </nav>
   )

@@ -1,9 +1,8 @@
-import { useContext, useEffect, useState } from 'react'
-import { LanguageContext } from '../pages/Layout.jsx'
+import { useEffect, useState } from 'react'
 import { fetchMovies } from '../services/movies.service.js'
 import { useLocation } from 'react-router-dom'
 export const useFetchMovies = () => {
-  const language = useContext(LanguageContext)
+  const language = 'es-ES'
 
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)

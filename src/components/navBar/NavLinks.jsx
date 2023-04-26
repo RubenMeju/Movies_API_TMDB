@@ -1,49 +1,52 @@
 import { Link, useLocation } from 'react-router-dom'
 import ChangeLanguage from './ChangeLanguage'
+import { useTranslation } from 'react-i18next'
 
-export default function NavLinks({ isOpen, setIsOpen, setLanguage }) {
+export default function NavLinks({ isOpen, setIsOpen }) {
+  const { t } = useTranslation()
+
   const location = useLocation()
   console.log('my location', location.pathname)
   const links = [
     {
-      name: 'Películas',
+      name: t('linkMovies'),
       categories: [
         {
           name: 'Popular',
           path: '/'
         },
         {
-          name: 'En cartelera hoy',
+          name: t('linkMoviesNowPlaying'),
           path: '/movies/now_playing'
         },
 
         {
-          name: 'Proximanente',
+          name: t('linkMoviesUpcoming'),
           path: '/movies/upcoming'
         },
         {
-          name: 'Mejor valoradas',
+          name: t('linkMoviesTopRated'),
           path: '/movies/top_rated'
         }
       ]
     },
     {
-      name: 'Televisión',
+      name: t('linkTv'),
       categories: [
         {
           name: 'Popular',
           path: '/tv'
         },
         {
-          name: 'Se emite hoy',
+          name: t('linkTvAiringToday'),
           path: '/tv/airing_today'
         },
         {
-          name: 'En televisión',
+          name: t('linkTvOnTheAir'),
           path: '/tv/on_the_air'
         },
         {
-          name: 'Mejor valoradas',
+          name: t('linkTvTopRated'),
           path: '/tv/top_rated'
         }
       ]
@@ -89,7 +92,7 @@ export default function NavLinks({ isOpen, setIsOpen, setLanguage }) {
           </li>
         ))}
       </ul>
-      <ChangeLanguage setLanguage={setLanguage} />
+      <ChangeLanguage />
     </div>
   )
 }
