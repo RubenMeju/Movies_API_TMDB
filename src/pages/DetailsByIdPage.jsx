@@ -1,7 +1,7 @@
 import { useParams, useLocation } from 'react-router-dom'
 import { useFetchDetailsByID } from '../hooks/useFetchDetailsByID'
-import CircleProgress from '../utils/CircleProgress'
 import { URL_IMAGE } from '../const'
+import Loader from '../components/loader/Loader'
 
 export default function DetailsByIdPage() {
   const location = useLocation()
@@ -17,7 +17,7 @@ export default function DetailsByIdPage() {
     <>
       {error && <h1>Algo ha salido mal</h1>}
       {loading ? (
-        <CircleProgress />
+        <Loader />
       ) : (
         <div className='w-full h-screen text-slate-100 lg:flex lg:justify-center lg:items-center'>
           <div className='flex flex-col bg-green-500'>
