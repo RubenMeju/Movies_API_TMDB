@@ -1,5 +1,4 @@
-import { API_KEY } from '../const'
-const URL_API = 'https://api.themoviedb.org/3/'
+import { API_KEY, URL_API } from '../const'
 const URL_MOVIES_POPULAR = 'movie/'
 
 export const fetchMovies = async (

@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom'
 import CircleProgress from '../utils/CircleProgress'
 import { orderDate } from '../utils/orderDate'
 import Loader from './loader/Loader'
+import { URL_IMAGE } from '../const'
 
 // 'https://api.themoviedb.org/3/movie/popular?api_key=1c1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b&language=es-ES&page=1'
-const URL_IMAGE = 'https://image.tmdb.org/t/p/w500/'
 
-export default function Card({ loading, error, data }) {
+export default function Card({ loading, error, data, paramUrl }) {
   return (
     <>
       {loading && <Loader />}
@@ -14,7 +14,7 @@ export default function Card({ loading, error, data }) {
       {data?.results.map((item) => (
         // card
 
-        <Link to={'/movie/' + item.id} key={item.id}>
+        <Link to={paramUrl + item.id} key={item.id}>
           <div
             className={`w-4/5 max-w-xs h-[400px] m-auto mt-10 rounded-md border-4 relative cursor-pointer ${
               item.vote_average * 10 > 70

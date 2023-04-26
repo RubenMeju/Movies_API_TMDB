@@ -1,11 +1,8 @@
-import { API_KEY } from '../const'
-const URL_API = 'https://api.themoviedb.org/3/'
-const URL_MOVIES_POPULAR = 'movie/'
+import { API_KEY, URL_API } from '../const'
 
-export const fetchMovieDetailsByID = async (language = 'es', id = 1) => {
-  console.log('fetchMovieDetailsByID: ', id)
+export const fetchDetailsByID = async (language = 'es', pathAction, id = 1) => {
   const res = await fetch(
-    URL_API + URL_MOVIES_POPULAR + id + API_KEY + '&language=' + language
+    URL_API + pathAction + id + API_KEY + '&language=' + language
   )
   const data = await res.json()
   return data

@@ -17,7 +17,7 @@ export default function TvPage() {
         {pathname === '/tv/top_rated' && 'Mejor valoradas'}
       </h1>
       <div className='md: flex flex-wrap justify-between '>
-        <Card loading={loading} error={error} data={tv} />
+        <Card loading={loading} error={error} data={tv} paramUrl='/tv/' />
       </div>
       <BtnMoreData page={page} setPage={setPage} />
     </>

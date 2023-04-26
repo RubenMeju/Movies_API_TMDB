@@ -29,8 +29,24 @@ const router = createBrowserRouter([
         element: <MoviesPage />
       },
       {
-        path: '/tv',
+        path: '/tv/',
         element: <TvPage />
+      },
+      {
+        path: '/tv/top_rated',
+        element: <TvPage />
+      },
+      {
+        path: '/tv/on_the_air',
+        element: <TvPage />
+      },
+      {
+        path: '/tv/airing_today',
+        element: <TvPage />
+      },
+      {
+        path: '/tv/:id',
+        element: <DetailsByIdPage />
       },
       {
         path: '/tv/:category',

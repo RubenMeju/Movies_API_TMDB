@@ -18,7 +18,12 @@ export default function MoviesPage() {
         {pathname === '/movies/top_rated' && 'Mejor valoradas'}
       </h1>
       <div className='md: flex flex-wrap justify-between '>
-        <Card loading={loading} error={error} data={movies} />
+        <Card
+          loading={loading}
+          error={error}
+          data={movies}
+          paramUrl='/movie/'
+        />
       </div>
       <BtnMoreData page={page} setPage={setPage} />
     </>
