@@ -2,9 +2,10 @@ import React from 'react'
 import Card from '../components/Card'
 import { useFetchTV } from '../hooks/useFetchTV'
 import { useLocation } from 'react-router-dom'
+import BtnMoreData from '../components/BtnMoreData'
 
 export default function TvPage() {
-  const { loading, error, tv } = useFetchTV()
+  const { loading, error, tv, page, setPage } = useFetchTV()
   const { pathname } = useLocation()
 
   return (
@@ -18,6 +19,7 @@ export default function TvPage() {
       <div className='md: flex flex-wrap justify-between '>
         <Card loading={loading} error={error} data={tv} />
       </div>
+      <BtnMoreData page={page} setPage={setPage} />
     </>
   )
 }

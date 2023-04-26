@@ -1,5 +1,5 @@
+import BtnMoreData from '../components/BtnMoreData'
 import Card from '../components/Card'
-import BtnMoreData from '../components/Paginator'
 import { useFetchMovies } from '../hooks/useFetchMovies'
 import { useLocation } from 'react-router-dom'
 

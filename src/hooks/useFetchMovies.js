@@ -8,7 +8,7 @@ export const useFetchMovies = () => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
   const [movies, setMovies] = useState(null)
-  const [page, setPage] = useState(15)
+  const [page, setPage] = useState(1)
 
   const location = useLocation()
   const category = location.pathname.split('/')[2]

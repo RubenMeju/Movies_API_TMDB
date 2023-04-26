@@ -8,18 +8,19 @@ export const useFetchTV = () => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
   const [tv, setTV] = useState(null)
+  const [page, setPage] = useState(1)
 
   const location = useLocation()
   const category = location.pathname.split('/')[2]
 
   useEffect(() => {
     setLoading(true)
-    fetchTV(language, category)
+    fetchTV(language, category, page)
       .then((data) => {
         setTV(data)
       })
       .catch(() => setError(true))
       .finally(() => setLoading(false))
-  }, [language, category])
-  return { loading, error, tv }
+  }, [language, category, page])
+  return { loading, error, tv, page, setPage }
 }
