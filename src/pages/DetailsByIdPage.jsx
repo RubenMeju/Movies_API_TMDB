@@ -15,53 +15,57 @@ export default function DetailsByIdPage() {
   const title = data?.title ? data?.title : data?.name
   return (
     <>
-      {loading && <CircleProgress />}
       {error && <h1>Algo ha salido mal</h1>}
-
-      <div className='w-full h-screen text-slate-100 lg:flex lg:justify-center lg:items-center'>
-        <div className='flex flex-col bg-green-500'>
-          <img src={URL_IMAGE + data?.poster_path} alt={title} />
-        </div>
-
-        <div className='w-4/5 m-auto lg:p-10'>
-          <h2 className='text-4xl text-center p-4'>{title}</h2>
-
-          <div className='pt-4 pb-4 text-xl'>
-            {data?.budget && (
-              <div className='flex'>
-                <p className='text-slate-300 pr-2'>Presupuesto:</p>
-                <p>{data?.budget.toLocaleString('es-ES')} $</p>
-              </div>
-            )}
-
-            <div className='flex'>
-              <p className='text-slate-300 pr-2'>V.O:</p>
-              <p> {data?.original_language}</p>
-            </div>
-
-            {data?.number_of_episodes && data?.number_of_seasons && (
-              <>
-                <div className='flex'>
-                  <p className='text-slate-300 pr-2'>Temporadas:</p>
-                  <p>{data?.number_of_seasons}</p>
-                </div>
-
-                <div className='flex'>
-                  <p className='text-slate-300 pr-2'>Numero de episodios</p>
-                  <p>{data?.number_of_episodes}</p>
-                </div>
-              </>
+      {loading ? (
+        <CircleProgress />
+      ) : (
+        <div className='w-full h-screen text-slate-100 lg:flex lg:justify-center lg:items-center'>
+          <div className='flex flex-col bg-green-500'>
+            {data?.poster_path && (
+              <img src={URL_IMAGE + data?.poster_path} alt={title} />
             )}
           </div>
 
-          {data?.overview && (
-            <>
-              <p className='text-center text-2xl'>Sipnosis</p>
-              <p className='text-xl pt-4 pb-4'>{data?.overview}</p>
-            </>
-          )}
+          <div className='w-4/5 m-auto lg:p-10'>
+            <h2 className='text-4xl text-center p-4'>{title}</h2>
+
+            <div className='pt-4 pb-4 text-xl'>
+              {data?.budget && (
+                <div className='flex'>
+                  <p className='text-slate-300 pr-2'>Presupuesto:</p>
+                  <p>{data?.budget.toLocaleString('es-ES')} $</p>
+                </div>
+              )}
+
+              <div className='flex'>
+                <p className='text-slate-300 pr-2'>V.O:</p>
+                <p> {data?.original_language}</p>
+              </div>
+
+              {data?.number_of_episodes && data?.number_of_seasons && (
+                <>
+                  <div className='flex'>
+                    <p className='text-slate-300 pr-2'>Temporadas:</p>
+                    <p>{data?.number_of_seasons}</p>
+                  </div>
+
+                  <div className='flex'>
+                    <p className='text-slate-300 pr-2'>Numero de episodios</p>
+                    <p>{data?.number_of_episodes}</p>
+                  </div>
+                </>
+              )}
+            </div>
+
+            {data?.overview && (
+              <>
+                <p className='text-center text-2xl'>Sipnosis</p>
+                <p className='text-xl pt-4 pb-4'>{data?.overview}</p>
+              </>
+            )}
+          </div>
         </div>
-      </div>
+      )}
     </>
   )
 }
