@@ -7,7 +7,7 @@ export default function ChangeLanguage({ setLanguage }) {
   const language = useContext(LanguageContext)
   return (
     <>
-      <div className='flex'>
+      <div className='flex pl-8'>
         <img
           src={language === 'es' ? iconSpain : iconUnitedKingdom}
           alt='icono de bandera de España'
