@@ -8,6 +8,7 @@ import Layout from './pages/Layout'
 import MoviesPage from './pages/MoviesPage'
 import TvPage from './pages/TvPage'
 import ErrorPage from './pages/ErrorPage'
+import DetailsByIdPage from './pages/DetailsByIdPage'
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <MoviesPage />
+      },
+      {
+        path: '/movie/:id',
+        element: <DetailsByIdPage />
       },
       {
         path: '/movies/:category',
