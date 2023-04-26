@@ -16,7 +16,7 @@ export default function TvPage() {
         {pathname === '/tv/on_the_air' && 'En televisión'}
         {pathname === '/tv/top_rated' && 'Mejor valoradas'}
       </h1>
-      <div className='md: flex flex-wrap justify-between '>
+      <div className='flex flex-col items-center md:flex-row flex-wrap justify-around'>
         <Card loading={loading} error={error} data={tv} paramUrl='/tv/' />
       </div>
       <BtnMoreData page={page} setPage={setPage} />

@@ -19,7 +19,7 @@ export default function Card({ loading, error, data, paramUrl }) {
             <Link
               to={paramUrl + item.id}
               key={item.id}
-              className={`w-4/5 max-w-xs h-[400px] m-auto mt-10 ml-2 rounded-md border-4 relative cursor-pointer ${
+              className={`w-4/5 max-w-xs h-[400px] mt-10 ml-2 rounded-md border-4 relative cursor-pointer ${
                 item.vote_average * 10 > 70
                   ? 'border-green-600'
                   : item.vote_average * 10 > 40

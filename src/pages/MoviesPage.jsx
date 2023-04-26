@@ -17,7 +17,7 @@ export default function MoviesPage() {
         {pathname === '/movies/upcoming' && 'Proximanente'}
         {pathname === '/movies/top_rated' && 'Mejor valoradas'}
       </h1>
-      <div className='md: flex flex-wrap justify-between '>
+      <div className='flex flex-col items-center md:flex-row flex-wrap justify-around'>
         <Card
           loading={loading}
           error={error}
