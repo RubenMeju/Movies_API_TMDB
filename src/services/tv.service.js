@@ -1,4 +1,4 @@
-import { API_KEY, URL_API } from '../const'
+import { URL_API } from '../const'
 
 const URL_TV_POPULAR = 'tv/'
 
@@ -11,7 +11,7 @@ export const fetchTV = async (
     URL_API +
       URL_TV_POPULAR +
       category +
-      API_KEY +
+      import.meta.env.VITE_API_KEY +
       '&language=' +
       language +
       '&page=' +

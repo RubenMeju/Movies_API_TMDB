@@ -1,4 +1,4 @@
-import { API_KEY, URL_API } from '../const'
+import { URL_API } from '../const'
 const URL_MOVIES_POPULAR = 'movie/'
 
 export const fetchMovies = async (
@@ -6,11 +6,12 @@ export const fetchMovies = async (
   category = 'popular',
   page = '1'
 ) => {
+  console.log('api env', import.meta.env.VITE_API_KEY)
   const res = await fetch(
     URL_API +
       URL_MOVIES_POPULAR +
       category +
-      API_KEY +
+      import.meta.env.VITE_API_KEY +
       '&language=' +
       language +
       '&page=' +
