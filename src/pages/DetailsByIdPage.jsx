@@ -26,7 +26,7 @@ export default function DetailsByIdPage() {
         <div className='w-4/5 m-auto lg:p-10'>
           <h2 className='text-4xl text-center p-4'>{title}</h2>
 
-          <div className='pt-4 text-xl'>
+          <div className='pt-4 pb-4 text-xl'>
             {data?.budget && (
               <div className='flex'>
                 <p className='text-slate-300 pr-2'>Presupuesto:</p>
@@ -54,8 +54,12 @@ export default function DetailsByIdPage() {
             )}
           </div>
 
-          <p className='text-2xl text-center p-4'>Sipnosis</p>
-          <p className=' text-xl'>{data?.overview}</p>
+          {data?.overview && (
+            <>
+              <p className='text-center text-2xl'>Sipnosis</p>
+              <p className='text-xl pt-4 pb-4'>{data?.overview}</p>
+            </>
+          )}
         </div>
       </div>
     </>
