@@ -11,7 +11,7 @@ export default function MoviesPage() {
 
   return (
     <>
-      <h1 className='pt-8 text-3xl text-center font-bold  text-white'>
+      <h1 className='pt-8 text-3xl text-center font-bold  text-slate-100'>
         {pathname === '/' && 'Películas populares'}
         {pathname === '/movies/now_playing' && 'En cartelera hoy'}
         {pathname === '/movies/upcoming' && 'Proximanente'}

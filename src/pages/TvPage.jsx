@@ -10,7 +10,7 @@ export default function TvPage() {
 
   return (
     <>
-      <h1 className='pt-8 text-3xl text-center font-bold  text-white'>
+      <h1 className='pt-8 text-3xl text-center font-bold  text-slate-300'>
         {pathname === '/tv' && 'TV populares'}
         {pathname === '/tv/airing_today' && 'Se emite hoy'}
         {pathname === '/tv/on_the_air' && 'En televisión'}
