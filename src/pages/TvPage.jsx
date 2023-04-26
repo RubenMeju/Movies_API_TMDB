@@ -1,6 +1,5 @@
 import React from 'react'
 import Card from '../components/Card'
-import Paginator from '../components/Paginator'
 import { useFetchTV } from '../hooks/useFetchTV'
 import { useLocation } from 'react-router-dom'
 
@@ -19,7 +18,6 @@ export default function TvPage() {
       <div className='md: flex flex-wrap justify-between '>
         <Card loading={loading} error={error} data={tv} />
       </div>
-      <Paginator />
     </>
   )
 }

@@ -1,4 +1,5 @@
 import Card from '../components/Card'
+import BtnMoreData from '../components/Paginator'
 import { useFetchMovies } from '../hooks/useFetchMovies'
 import { useLocation } from 'react-router-dom'
 
@@ -19,14 +20,7 @@ export default function MoviesPage() {
       <div className='md: flex flex-wrap justify-between '>
         <Card loading={loading} error={error} data={movies} />
       </div>
-      <button
-        className='bg-green-700 text-white p-6'
-        onClick={() => {
-          setPage(page + 1)
-        }}
-      >
-        Mostras más
-      </button>
+      <BtnMoreData page={page} setPage={setPage} />
     </>
   )
 }
