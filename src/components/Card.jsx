@@ -45,13 +45,15 @@ export default function Card({ loading, error, data, paramUrl }) {
                 </h2>
 
                 <div className='flex justify-around'>
-                  <p>
-                    {orderDate(
-                      item.release_date
-                        ? item.release_date
-                        : item.first_air_date
-                    )}
-                  </p>
+                  {item.release_date && (
+                    <p>
+                      {orderDate(
+                        item.release_date
+                          ? item.release_date
+                          : item.first_air_date
+                      )}
+                    </p>
+                  )}
                   <p>V.O: {item.original_language.toUpperCase()}</p>
                 </div>
               </div>
