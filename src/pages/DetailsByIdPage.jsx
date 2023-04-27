@@ -11,7 +11,6 @@ export default function DetailsByIdPage() {
   const id = params.id
 
   const { loading, error, data } = useFetchDetailsByID(pathAction, id)
-  console.log('data', data)
   const title = data?.title ? data?.title : data?.name
   return (
     <>
@@ -19,7 +18,7 @@ export default function DetailsByIdPage() {
       {loading ? (
         <Loader />
       ) : (
-        <div className='w-full h-screen text-slate-100 lg:flex lg:justify-center lg:items-center'>
+        <div className='w-full h-screen max-w-lg m-auto text-slate-100 lg:flex lg:justify-center lg:items-center lg:max-w-4xl'>
           <div className='flex flex-col bg-green-500'>
             {data?.poster_path && (
               <img src={URL_IMAGE + data?.poster_path} alt={title} />
