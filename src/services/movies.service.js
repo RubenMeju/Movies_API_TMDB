@@ -12,7 +12,7 @@ export const fetchMovies = async (
     URL_API +
       URL_MOVIES_POPULAR +
       category +
-      process.env.VITE_API_KEY +
+      import.meta.env.VITE_API_KEY +
       '&language=' +
       language +
       '&page=' +
