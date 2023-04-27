@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next'
 
 export const useFetchTV = () => {
   const { i18n } = useTranslation()
-
   const language = i18n.languages[0]
 
   const [loading, setLoading] = useState(false)

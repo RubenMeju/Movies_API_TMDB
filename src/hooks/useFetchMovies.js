@@ -1,8 +1,12 @@
 import { useEffect, useState } from 'react'
 import { fetchMovies } from '../services/movies.service.js'
 import { useLocation } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+
 export const useFetchMovies = () => {
-  const language = 'es-ES'
+  const { i18n } = useTranslation()
+  const language = i18n.languages[0]
+  // console.log('meju language: ', language)
 
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)

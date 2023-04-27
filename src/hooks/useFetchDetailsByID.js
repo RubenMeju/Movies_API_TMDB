@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
 import { fetchDetailsByID } from '../services/detailsById.service.js'
+import { useTranslation } from 'react-i18next'
 
 export const useFetchDetailsByID = (pathAction, id) => {
-  const language = 'es-ES'
+  const { i18n } = useTranslation()
+  const language = i18n.languages[0]
 
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
