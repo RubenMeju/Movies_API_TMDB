@@ -2,6 +2,7 @@ import { useParams, useLocation } from 'react-router-dom'
 import { useFetchDetailsByID } from '../hooks/useFetchDetailsByID'
 import { URL_IMAGE } from '../const'
 import Loader from '../components/loader/Loader'
+import { orderDate } from '../utils/orderDate'
 
 export default function DetailsByIdPage() {
   const location = useLocation()
@@ -37,9 +38,21 @@ export default function DetailsByIdPage() {
               )}
 
               <div className='flex'>
-                <p className='text-slate-300 pr-2'>V.O:</p>
-                <p> {data?.original_language}</p>
+                {data?.release_date ||
+                  (data?.first_air_date && (
+                    <>
+                      <p className='pr-2'>Fecha de estreno:</p>
+                      <p>
+                        {orderDate(
+                          data?.release_date
+                            ? data?.release_date
+                            : data?.first_air_date
+                        )}
+                      </p>
+                    </>
+                  ))}
               </div>
+              <p>V.O: {data?.original_language.toUpperCase()}</p>
 
               {data?.number_of_episodes && data?.number_of_seasons && (
                 <>
@@ -49,7 +62,7 @@ export default function DetailsByIdPage() {
                   </div>
 
                   <div className='flex'>
-                    <p className='text-slate-300 pr-2'>Numero de episodios</p>
+                    <p className='text-slate-300 pr-2'>Numero de episodios:</p>
                     <p>{data?.number_of_episodes}</p>
                   </div>
                 </>
