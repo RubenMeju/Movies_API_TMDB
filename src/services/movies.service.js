@@ -6,8 +6,7 @@ export const fetchMovies = async (
   category = 'popular',
   page = '1'
 ) => {
-  console.log('api env impòrt', import.meta.env.VITE_API_KEY)
-  console.log('api env process', process.env.VITE_API_KEY)
+  console.log('api env', import.meta.env.VITE_API_KEY)
   const res = await fetch(
     URL_API +
       URL_MOVIES_POPULAR +
