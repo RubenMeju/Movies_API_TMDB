@@ -3,11 +3,14 @@ import CircleProgress from '../utils/CircleProgress'
 import { orderDate } from '../utils/orderDate'
 import Loader from './loader/Loader'
 import { URL_IMAGE } from '../const'
+import { useTranslation } from 'react-i18next'
 
 export default function Card({ loading, error, data, paramUrl }) {
+  const { t } = useTranslation()
+
   return (
     <>
-      {error && <h1>Algo ha salido mal</h1>}
+      {error && <h1>{t('error')}</h1>}
 
       {loading ? (
         <Loader />

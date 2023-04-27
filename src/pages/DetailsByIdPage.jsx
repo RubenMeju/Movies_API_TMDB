@@ -3,8 +3,11 @@ import { useFetchDetailsByID } from '../hooks/useFetchDetailsByID'
 import { URL_IMAGE } from '../const'
 import Loader from '../components/loader/Loader'
 import { orderDate } from '../utils/orderDate'
+import { useTranslation } from 'react-i18next'
 
 export default function DetailsByIdPage() {
+  const { t } = useTranslation()
+
   const location = useLocation()
   const pathAction = '/' + location.pathname.split('/')[1] + '/'
 
@@ -15,7 +18,7 @@ export default function DetailsByIdPage() {
   const title = data?.title ? data?.title : data?.name
   return (
     <>
-      {error && <h1>Algo ha salido mal</h1>}
+      {error && <h1>{t('error')}</h1>}
       {loading ? (
         <Loader />
       ) : (
@@ -32,16 +35,17 @@ export default function DetailsByIdPage() {
             <div className='pt-4 pb-4 text-xl'>
               {data?.budget && (
                 <div className='flex'>
-                  <p className='text-slate-300 pr-2'>Presupuesto:</p>
+                  <p className='text-slate-300 pr-2'>{t('budget')}:</p>
                   <p>{data?.budget.toLocaleString('es-ES')} $</p>
                 </div>
               )}
 
               <div className='flex'>
+                <p className='pr-2 text-slate-300'>{t('releaseDate')}</p>
+
                 {data?.release_date ||
                   (data?.first_air_date && (
                     <>
-                      <p className='pr-2'>Fecha de estreno:</p>
                       <p>
                         {orderDate(
                           data?.release_date
@@ -52,17 +56,24 @@ export default function DetailsByIdPage() {
                     </>
                   ))}
               </div>
-              <p>V.O: {data?.original_language.toUpperCase()}</p>
+              <div className='flex'>
+                <p className='text-slate-300 pr-2'>V.O:</p>
+                <p>{data?.original_language.toUpperCase()}</p>
+              </div>
 
               {data?.number_of_episodes && data?.number_of_seasons && (
                 <>
                   <div className='flex'>
-                    <p className='text-slate-300 pr-2'>Temporadas:</p>
+                    <p className='text-slate-300 pr-2'>
+                      {t('numberOfSeasons')}
+                    </p>
                     <p>{data?.number_of_seasons}</p>
                   </div>
 
                   <div className='flex'>
-                    <p className='text-slate-300 pr-2'>Numero de episodios:</p>
+                    <p className='text-slate-300 pr-2'>
+                      {t('numberOfEpisodes')}
+                    </p>
                     <p>{data?.number_of_episodes}</p>
                   </div>
                 </>
@@ -71,7 +82,7 @@ export default function DetailsByIdPage() {
 
             {data?.overview && (
               <>
-                <p className='text-center text-2xl'>Sipnosis</p>
+                <p className='text-center text-2xl'>{t('overview')}</p>
                 <p className='text-xl pt-4 pb-4'>{data?.overview}</p>
               </>
             )}

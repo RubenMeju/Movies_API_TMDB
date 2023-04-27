@@ -7,6 +7,9 @@ import { initReactI18next } from 'react-i18next'
 const resources = {
   es: {
     translation: {
+      error: 'Algo ha salido mal',
+      btnMore: 'Ver más',
+
       moviesPopular: 'Películas Populares',
       moviesNowPlaying: 'Películas en Cartelera',
       moviesUpcoming: 'Películas Próximamente',
@@ -27,11 +30,21 @@ const resources = {
       // links tv
       linkTvAiringToday: 'Se emite hoy',
       linkTvOnTheAir: 'En televisión',
-      linkTvTopRated: 'Mejor valoradas'
+      linkTvTopRated: 'Mejor valoradas',
+
+      // DetailsPage
+      budget: 'Presupuesto:',
+      releaseDate: 'Fecha de lanzamiento:',
+      numberOfSeasons: 'Número de temporadas:',
+      numberOfEpisodes: 'Número de episodios:',
+      overview: 'Sinopsis:'
     }
   },
   en: {
     translation: {
+      error: 'Something went wrong',
+      btnMore: 'Show more',
+
       moviesPopular: 'Popular Movies',
       moviesNowPlaying: 'Movies Now Playing',
       moviesUpcoming: 'Upcoming Movies',
@@ -52,7 +65,14 @@ const resources = {
       // links tv
       linkTvAiringToday: 'Airing Today',
       linkTvOnTheAir: 'On The Air',
-      linkTvTopRated: 'Top Rated'
+      linkTvTopRated: 'Top Rated',
+
+      // DetailsPage
+      budget: 'Budget:',
+      releaseDate: 'Release Date:',
+      numberOfSeasons: 'Number of seasons:',
+      numberOfEpisodes: 'Number of episodes:',
+      overview: 'Overview:'
     }
   }
 }

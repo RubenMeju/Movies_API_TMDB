@@ -1,6 +1,8 @@
-import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 export default function BtnMoreData({ page, setPage }) {
+  const { t } = useTranslation()
+
   return (
     <div className='flex justify-center p-8'>
       <button
@@ -10,7 +12,7 @@ export default function BtnMoreData({ page, setPage }) {
           scroll(0, 0)
         }}
       >
-        Mostras más
+        {t('btnMore')}
       </button>
     </div>
   )
